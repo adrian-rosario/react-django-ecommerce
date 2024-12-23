@@ -18,20 +18,20 @@ venv/
 db.sqlite3
 
 # Django-specific
-/static/
-media/
-*.migrations/
-*.migrations/*.pyc
+ecommerce/backend/sales_platform/static/
+ecommerce/backend/sales_platform/media/
+*migrations/
+*migrations/*.pyc
 
 # Node.js / React
-node_modules/
-build/
-dist/
+ecommerce/frontend/node_modules/
+ecommerce/frontend/build/
+ecommerce/frontend/dist/
 *.lock
 *.env.local
 *.env.development
 *.env.production
-.env.test
+*.env.test
 
 # IDEs and editors
 .vscode/
@@ -41,5 +41,3 @@ dist/
 # OS-specific
 .DS_Store
 Thumbs.db
-
-*.txt

@@ -1,0 +1,64 @@
+body,
+html,
+main,
+footer {
+  background-color: #0a0a0a;
+}
+
+main {
+  min-height: 60vh;
+}
+
+header a {
+  text-decoration: none;
+}
+
+.rating span {
+  margin: 0.175rem;
+}
+
+.product_card h3 {
+  padding: 1rem 0 0 0;
+}
+
+.cart_page h3 {
+  margin: 2rem 0;
+}
+
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+  display: flex;
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 0;
+}
+
+.carusel-caption h3 {
+  color: #fff;
+}
+
+.carousel img {
+  display: block;
+  height: 300px;
+  padding: 30px;
+  margin: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.carousel a {
+  margin: 0 auto;
+}
+
+@media (max-widht: 900px;) {
+  .carousel-caption h3 {
+    font-size: 2.5vw;
+  }
+}
+
+.paymentForm {
+  margin: 0 auto;
+}
