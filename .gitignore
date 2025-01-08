@@ -14,14 +14,20 @@ venv/
 *.py[cod]
 *.pyo
 *.pyd
+*.pot
+*.pyc
+*.pyo
 *.sqlite3
 db.sqlite3
 
 # Django-specific
+# media/
+# static/
 ecommerce/backend/sales_platform/static/
 ecommerce/backend/sales_platform/media/
 *migrations/
 *migrations/*.pyc
+
 
 # Node.js / React
 ecommerce/frontend/node_modules/
@@ -41,3 +47,4 @@ ecommerce/frontend/dist/
 # OS-specific
 .DS_Store
 Thumbs.db
+
