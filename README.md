@@ -1,4 +1,4 @@
-# react-django
+# react-django-ecommerce
 
 ## /ecommerce
 
