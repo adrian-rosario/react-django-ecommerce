@@ -7,10 +7,13 @@ function Product({ product_data }) {
   return (
     <>
       <Card className='my-3 p-3 rounded product_card'>
-        <div>
+        <div className='d-flex justify-content-center align-items-center product-imageJar'>
           <Link to={`/product/${product_data.id}`}>
             {product_data.uploadedImage ? (
-              <Card.Img src={product_data.uploadedImage} />
+              <Card.Img
+                src={product_data.uploadedImage}
+                className='product-uploadedImage'
+              />
             ) : (
               <Card.Img src={product_data.image} />
             )}
@@ -28,7 +31,7 @@ function Product({ product_data }) {
               <Rating
                 rating={product_data.rating}
                 reviews={product_data.numReviews}
-                star_color={`rgb(253, 168, 0)`}
+                // star_color={`rgb(253, 168, 0)`}
               ></Rating>
             </Card.Text>
 

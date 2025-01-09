@@ -73,20 +73,8 @@ export default function Profile() {
   }, [navigate, userDetails, dispatch, user, success, errorUserDetails]);
 
   const handleSubmit = (e) => {
-    // console.log("handle submit");
     setMessage("");
     e.preventDefault();
-
-    // console.log("??? ", password2);
-
-    // dispatch(
-    //   update_user_profile({
-    //     id: user.id,
-    //     name: name,
-    //     email: email,
-    //     password: password,
-    //   })
-    // );
 
     if (password2 !== "") {
       if (password !== password2) {
@@ -94,7 +82,6 @@ export default function Profile() {
         return;
       }
     } else {
-      // console.log("should update...");
       dispatch(
         update_user_profile({
           id: user.id,
@@ -103,12 +90,10 @@ export default function Profile() {
           password: password,
         })
       );
-      // setMessage("Profile Updated.");
     }
   };
 
   const handleViewOrder = (id) => {
-    // console.log("navigate to ", id);
     navigate(`/order/view/${id}`);
   };
 
@@ -182,8 +167,8 @@ export default function Profile() {
                 <th>ID</th>
                 <th>Date</th>
                 <th>Total</th>
-                <th>Paid</th>
-                <th>Delivered</th>
+                <th className='text-center'>Paid</th>
+                <th className='text-center'>Delivered</th>
                 <th>&nbsp;</th>
               </tr>
             </thead>
@@ -197,33 +182,33 @@ export default function Profile() {
                       {new Date(item.createdAt).toLocaleString("en-US", {
                         timeZone: "America/New_York",
                         year: "numeric",
-                        month: "long",
+                        month: "short",
                         day: "numeric",
-                        hour: "2-digit",
+                        hour: "numeric",
                         minute: "2-digit",
                         second: "2-digit",
                       })}
                     </td>
                     <td>${item.totalPrice}</td>
-                    <td>
+                    <td align='center'>
                       {item.isPaid ? (
                         <>
-                          <i
-                            className='fas fa-check'
-                            style={{ color: "green" }}
-                          ></i>
-                          &nbsp;
                           <small>
                             {new Date(item.paidDate).toLocaleString("en-US", {
                               timeZone: "America/New_York",
                               year: "numeric",
                               month: "short",
                               day: "numeric",
-                              hour: "2-digit",
+                              hour: "numeric",
                               minute: "2-digit",
                               second: "2-digit",
                             })}
                           </small>
+                          &nbsp;
+                          <i
+                            className='fas fa-check'
+                            style={{ color: "green" }}
+                          ></i>
                         </>
                       ) : (
                         <i
@@ -232,23 +217,28 @@ export default function Profile() {
                         ></i>
                       )}
                     </td>
-                    <td>
+                    <td align='center'>
                       {item.isDelivered ? (
                         <>
-                          <i
-                            className='fas fa-check'
-                            style={{ color: "green" }}
-                          ></i>
-                          &nbsp;
-                          {new Date(item.deliveredAt).toLocaleString("en-US", {
-                            timeZone: "America/New_York",
-                            year: "numeric",
-                            month: "long",
-                            day: "numeric",
-                            hour: "2-digit",
-                            minute: "2-digit",
-                            second: "2-digit",
-                          })}
+                          <small>
+                            {new Date(item.deliveredAt).toLocaleString(
+                              "en-US",
+                              {
+                                timeZone: "America/New_York",
+                                year: "numeric",
+                                month: "short",
+                                day: "numeric",
+                                hour: "numeric",
+                                minute: "2-digit",
+                                second: "2-digit",
+                              }
+                            )}
+                            &nbsp;
+                            <i
+                              className='fas fa-check'
+                              style={{ color: "green" }}
+                            ></i>
+                          </small>
                         </>
                       ) : (
                         <i

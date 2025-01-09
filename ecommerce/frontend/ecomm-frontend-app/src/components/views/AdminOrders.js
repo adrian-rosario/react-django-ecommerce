@@ -101,9 +101,9 @@ export default function AdminOrders() {
                     : new Date(item.paidDate).toLocaleString("en-US", {
                         timeZone: "America/New_York",
                         year: "numeric",
-                        month: "long",
+                        month: "short",
                         day: "numeric",
-                        hour: "2-digit",
+                        hour: "numeric",
                         minute: "2-digit",
                         second: "2-digit",
                       })}
@@ -120,9 +120,9 @@ export default function AdminOrders() {
                     ? new Date(item.deliveredAt).toLocaleString("en-US", {
                         timeZone: "America/New_York",
                         year: "numeric",
-                        month: "long",
+                        month: "short",
                         day: "numeric",
-                        hour: "2-digit",
+                        hour: "numeric",
                         minute: "2-digit",
                         second: "2-digit",
                       })

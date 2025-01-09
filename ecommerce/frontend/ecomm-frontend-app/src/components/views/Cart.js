@@ -48,14 +48,19 @@ function Cart(/*{ match, location, history }*/) {
 
   return (
     <div className='cart_page'>
+      <div>
+        <h3>Cart</h3>
+      </div>
+
       <Row>
         <Col md={8}>
-          <h3>Cart</h3>
-
           <div>
             {!cart || cart.length === 0 ? (
               <AlertMessage>
-                The Cart is empty. <Link to='/'>Go Back.</Link>
+                The Cart is empty.{" "}
+                <Button type='button' onClick={() => navigate("/")}>
+                  Go Back.
+                </Button>
               </AlertMessage>
             ) : (
               <ListGroup variant='flush'>

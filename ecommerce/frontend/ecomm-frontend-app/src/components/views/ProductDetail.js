@@ -120,7 +120,7 @@ function ProductDetail() {
                   <Rating
                     rating={the_product.rating}
                     reviews={the_product.numReviews}
-                    star_color={`rgb(253, 168, 0)`}
+                    // star_color={`rgb(253, 168, 0)`}
                   ></Rating>
                 </ListGroup.Item>
               </ListGroup>
@@ -228,7 +228,7 @@ function ProductDetail() {
                     <Rating
                       rating={item.rating}
                       reviews={the_product.numReviews}
-                      star_color={`rgb(253, 168, 0)`}
+                      // star_color={`rgb(253, 168, 0)`}
                     ></Rating>
                   </ListGroup.Item>
                 ))}
