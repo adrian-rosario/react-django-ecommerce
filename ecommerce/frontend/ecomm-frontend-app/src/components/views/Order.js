@@ -76,7 +76,16 @@ export default function Order() {
 
             <ListGroup.Item>
               <h4>Payment</h4>
-              <p>{payment}</p>
+
+              <div className='d-flex'>
+                <div>
+                  {payment === "PayPal" && (
+                    <i className='fa-brands fa-paypal display-6' />
+                  )}
+                  &nbsp;
+                </div>
+                <div>{payment}</div>
+              </div>
             </ListGroup.Item>
 
             <ListGroup.Item>
@@ -153,9 +162,6 @@ export default function Order() {
 
               <ListGroup.Item>
                 {error && <AlertMessage variant='danger'>{error}</AlertMessage>}
-              </ListGroup.Item>
-
-              <ListGroup.Item>
                 <Row>
                   <Button
                     type='button'

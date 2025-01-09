@@ -8,9 +8,6 @@ import { useNavigate } from "react-router-dom";
 import { user_constants } from "../../utl/constants_user";
 import { getOrderHistory } from "../../state/actions/order";
 
-// import FormLoginRegister from "./FormLoginRegister";
-// import { Link } from "react-router-dom";
-
 export default function Profile() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -19,11 +16,6 @@ export default function Profile() {
   const [message, setMessage] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  // const query = window.location.search;
-  // const param = new URLSearchParams(query);
-  // const redirect = param.get("redirect");
-
   const userDetailsRoot = useSelector((state) => state.userDetails);
   const {
     error: errorUserDetails,
@@ -33,8 +25,6 @@ export default function Profile() {
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userDetails } = userLogin;
-
-  // console.log("??", JSON.stringify(userLogin));
 
   const userUpdatedLogin = useSelector((state) => state.userUpdateProfile);
   const { success } = userUpdatedLogin;
@@ -46,22 +36,17 @@ export default function Profile() {
     purchases,
   } = orderHistory;
 
-  // console.log("purchases:\n", JSON.stringify(purchases));
-
   //  clear any messages, giving user a chance to correct error
   const handlePasswordFocus = (e) => {
-    // console.log("focus!");
     setMessage("");
   };
 
   useEffect(() => {
     if (!userDetails || errorUserDetails) {
-      // console.log("no user details");
       navigate("/login");
     } else {
       if (!user || !user.name || success) {
         dispatch({ type: user_constants.USER_PROFILE_RESET });
-        // console.log("no user or name");
         dispatch(update_get("profile"));
         dispatch(getOrderHistory());
         setMessage("Profile Updated.");
@@ -73,20 +58,8 @@ export default function Profile() {
   }, [navigate, userDetails, dispatch, user, success, errorUserDetails]);
 
   const handleSubmit = (e) => {
-    // console.log("handle submit");
     setMessage("");
     e.preventDefault();
-
-    // console.log("??? ", password2);
-
-    // dispatch(
-    //   update_user_profile({
-    //     id: user.id,
-    //     name: name,
-    //     email: email,
-    //     password: password,
-    //   })
-    // );
 
     if (password2 !== "") {
       if (password !== password2) {
@@ -94,7 +67,6 @@ export default function Profile() {
         return;
       }
     } else {
-      // console.log("should update...");
       dispatch(
         update_user_profile({
           id: user.id,
@@ -103,17 +75,15 @@ export default function Profile() {
           password: password,
         })
       );
-      // setMessage("Profile Updated.");
     }
   };
 
   const handleViewOrder = (id) => {
-    // console.log("navigate to ", id);
     navigate(`/order/view/${id}`);
   };
 
   return (
-    <Row>
+    <Row className='mt-4'>
       <Col md={3}>
         <h3>Profile</h3>
 
@@ -176,14 +146,14 @@ export default function Profile() {
         ) : errorLoadingHistory ? (
           <AlertMessage variant='danger'>{errorLoadingHistory}</AlertMessage>
         ) : (
-          <Table striped responsive className='table-sm'>
+          <Table striped responsive className='table-sm mt-2'>
             <thead>
               <tr>
                 <th>ID</th>
                 <th>Date</th>
                 <th>Total</th>
-                <th>Paid</th>
-                <th>Delivered</th>
+                <th className='text-center'>Paid</th>
+                <th className='text-center'>Delivered</th>
                 <th>&nbsp;</th>
               </tr>
             </thead>
@@ -197,33 +167,33 @@ export default function Profile() {
                       {new Date(item.createdAt).toLocaleString("en-US", {
                         timeZone: "America/New_York",
                         year: "numeric",
-                        month: "long",
+                        month: "short",
                         day: "numeric",
-                        hour: "2-digit",
+                        hour: "numeric",
                         minute: "2-digit",
                         second: "2-digit",
                       })}
                     </td>
                     <td>${item.totalPrice}</td>
-                    <td>
+                    <td align='center'>
                       {item.isPaid ? (
                         <>
-                          <i
-                            className='fas fa-check'
-                            style={{ color: "green" }}
-                          ></i>
-                          &nbsp;
                           <small>
                             {new Date(item.paidDate).toLocaleString("en-US", {
                               timeZone: "America/New_York",
                               year: "numeric",
                               month: "short",
                               day: "numeric",
-                              hour: "2-digit",
+                              hour: "numeric",
                               minute: "2-digit",
                               second: "2-digit",
                             })}
                           </small>
+                          &nbsp;
+                          <i
+                            className='fas fa-check'
+                            style={{ color: "green" }}
+                          ></i>
                         </>
                       ) : (
                         <i
@@ -232,23 +202,28 @@ export default function Profile() {
                         ></i>
                       )}
                     </td>
-                    <td>
+                    <td align='center'>
                       {item.isDelivered ? (
                         <>
-                          <i
-                            className='fas fa-check'
-                            style={{ color: "green" }}
-                          ></i>
-                          &nbsp;
-                          {new Date(item.deliveredAt).toLocaleString("en-US", {
-                            timeZone: "America/New_York",
-                            year: "numeric",
-                            month: "long",
-                            day: "numeric",
-                            hour: "2-digit",
-                            minute: "2-digit",
-                            second: "2-digit",
-                          })}
+                          <small>
+                            {new Date(item.deliveredAt).toLocaleString(
+                              "en-US",
+                              {
+                                timeZone: "America/New_York",
+                                year: "numeric",
+                                month: "short",
+                                day: "numeric",
+                                hour: "numeric",
+                                minute: "2-digit",
+                                second: "2-digit",
+                              }
+                            )}
+                            &nbsp;
+                            <i
+                              className='fas fa-check'
+                              style={{ color: "green" }}
+                            ></i>
+                          </small>
                         </>
                       ) : (
                         <i

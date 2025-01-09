@@ -1,0 +1,40 @@
+altgraph @ file:///System/Volumes/Data/SWE/Apps/DT/BuildRoots/BuildRoot2/ActiveBuildRoot/Library/Caches/com.apple.xbs/Sources/python3/python3-124/altgraph-0.17.2-py2.py3-none-any.whl
+asgiref==3.8.1
+attrs==24.2.0
+autobahn==24.4.2
+Automat==24.8.1
+beautifulsoup4==4.12.3
+certifi==2024.8.30
+cffi==1.17.1
+channels==4.2.0
+charset-normalizer==3.4.0
+constantly==23.10.4
+cryptography==43.0.3
+daphne==4.1.2
+Django==4.2.16
+djangorestframework==3.15.2
+djangorestframework-simplejwt==5.3.1
+future @ file:///System/Volumes/Data/SWE/Apps/DT/BuildRoots/BuildRoot2/ActiveBuildRoot/Library/Caches/com.apple.xbs/Sources/python3/python3-124/future-0.18.2-py3-none-any.whl
+hyperlink==21.0.0
+idna==3.10
+incremental==24.7.2
+macholib @ file:///System/Volumes/Data/SWE/Apps/DT/BuildRoots/BuildRoot2/ActiveBuildRoot/Library/Caches/com.apple.xbs/Sources/python3/python3-124/macholib-1.15.2-py2.py3-none-any.whl
+pdfkit==1.0.0
+pillow==11.0.0
+pyasn1==0.6.1
+pyasn1_modules==0.4.1
+pycparser==2.22
+PyJWT==2.10.1
+pyOpenSSL==24.2.1
+requests==2.32.3
+service-identity==24.2.0
+six @ file:///System/Volumes/Data/SWE/Apps/DT/BuildRoots/BuildRoot2/ActiveBuildRoot/Library/Caches/com.apple.xbs/Sources/python3/python3-124/six-1.15.0-py2.py3-none-any.whl
+soupsieve==2.6
+sqlparse==0.5.1
+stripe==11.3.0
+tomli==2.1.0
+Twisted==24.10.0
+txaio==23.1.1
+typing_extensions==4.12.2
+urllib3==2.2.3
+zope.interface==7.1.1

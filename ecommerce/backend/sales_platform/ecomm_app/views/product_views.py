@@ -1,10 +1,17 @@
 from ecomm_app.models import Product, Review, Order, OrderItem, ShippingAddress
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
-from ecomm_app.serializers import ProductSerializer, ReviewSerializer, OrderSerializer, OrderItemSerializer, ShippingAddressSerializer
+from ecomm_app.serializers import ProductSerializer, ReviewSerializer, OrderSerializer, OrderItemSerializer, ShippingAddressSerializer #, UserSerializer, UserWithRefreshTokenSerializer
 from rest_framework.permissions import IsAuthenticated, IsAdminUser 
 from rest_framework import status
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+# from django.http import JsonResponse
+# from django.shortcuts import render
+# from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+# from rest_framework_simplejwt.views import TokenObtainPairView
+# from django.contrib.auth.models import User 
+# from django.contrib.auth.hashers import make_password
 
 @api_view(['GET'])
 def list_products(request):
@@ -75,6 +82,7 @@ def list_order(request, id):
   return Response(serializer.data)
 
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def list_order_item(request, id):
   orderItem = OrderItem.objects.get(id=id)
   # print('======= loaded orderItem ', orderItem)
@@ -82,7 +90,8 @@ def list_order_item(request, id):
   return Response(serializer.data)
 
 @api_view(['GET'])
-def list_order_item(request, id):
+@permission_classes([IsAuthenticated])
+def list_order_address(request, id):
   shippingAddress = ShippingAddress.objects.get(id=id)
   # print('======= loaded shippingAddress ', shippingAddress)
   serializer = ShippingAddressSerializer(shippingAddress, many=False)

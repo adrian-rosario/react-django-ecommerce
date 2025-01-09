@@ -82,7 +82,7 @@ export default function AdminEditProducts() {
     }
   };
   return (
-    <div>
+    <div className='mt-4'>
       <Row className='align-items-center'>
         <Col>
           <h3>Products, Admin view</h3>
@@ -112,7 +112,7 @@ export default function AdminEditProducts() {
           <AlertMessage variant='danger'>{adminAddEmptyError}</AlertMessage>
         )}
 
-        <Table striped bordered hover responsive className='table-sm'>
+        <Table striped bordered hover responsive className='table-sm mt-4'>
           <thead>
             <tr>
               <th className='text-center'>ID</th>
@@ -138,8 +138,9 @@ export default function AdminEditProducts() {
                   </td>
                   <td className='text-center align-middle'>
                     <Button
-                      variant='light'
-                      className='button-sm mx-2'
+                      size='sm'
+                      variant='primary'
+                      className='mx-2'
                       type='button'
                       onClick={() => handleEditProduct(item.id)}
                     >
@@ -147,8 +148,8 @@ export default function AdminEditProducts() {
                     </Button>
 
                     <Button
+                      size='sm'
                       variant='danger'
-                      className='btn-sm'
                       type='button'
                       onClick={() => handleDeleteProduct(item.id, item.name)}
                     >

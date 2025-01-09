@@ -12,8 +12,6 @@ import { constants } from "../../utl/constants";
 import { adminEditProduct } from "../../state/actions/product";
 import axios from "axios";
 
-// import { admin_get_user_details } from "../../state/actions/user";
-
 export default function AdminEditProduct() {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -91,15 +89,10 @@ export default function AdminEditProduct() {
     }
   };
 
-  // if (error) console.log(error);
-  // if (productError) console.log(productError);
-
   useEffect(() => {
-    if (!userDetails.is_admin || userInformationError) {
+    if (!userDetails && !userDetails.is_admin) {
       navigate("/login");
     }
-    // console.log(userDetails.is_admin);
-    // console.log(userDetails.token);
 
     if (adminEditProductSuccess) {
       dispatch({ type: constants.PRODUCT_ADMIN_EDIT_PRODUCT_RESET });
@@ -146,7 +139,7 @@ export default function AdminEditProduct() {
     <div>
       <Link to='/admin-edit-products'>Go Back</Link>
       <FormLoginRegister>
-        <h3>Edit Product, Admin</h3>
+        <h3>Admin, Edit Product</h3>
 
         {productError && (
           <AlertMessage variant='danger'>{productError}</AlertMessage>
@@ -169,7 +162,7 @@ export default function AdminEditProduct() {
           </Form.Group>
 
           <Form.Group controlId='image' className='mt-4'>
-            <Form.Label>Default Image:</Form.Label>
+            <Form.Label>Image:</Form.Label>
             <Row>
               <Col md={6}>
                 <Form.Control
@@ -191,11 +184,10 @@ export default function AdminEditProduct() {
             </Row>
           </Form.Group>
 
-          <Form.Group controlId='uploadedImage' className='mt-4'>
+          <Form.Group controlId='uploadedImage' className='mb-4'>
             <Row>
               <Col md={6}>
-                Current Uploaded Image: "
-                {product.uploadedImage ? product.uploadedImage : "None"}"
+                {/* {product.uploadedImage ? product.uploadedImage : "None"} */}
                 <Form.Label className='mt-4'>Upload New Image:</Form.Label>
                 <Form.Control
                   type='file'

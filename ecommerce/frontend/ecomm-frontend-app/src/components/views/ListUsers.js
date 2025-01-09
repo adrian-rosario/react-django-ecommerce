@@ -38,14 +38,14 @@ export default function ListUsers() {
   };
 
   return (
-    <div>
+    <div className='mt-4'>
       <h3>All Users, Admin</h3>
 
       {loading && <Loading />}
       {error && <AlertMessage variant='danger'>{error}</AlertMessage>}
 
       {users && (
-        <Table striped bordered hover responsive className='table-sm'>
+        <Table striped bordered hover responsive className='table-sm mt-4'>
           <thead>
             <tr>
               <th className='text-center'>ID</th>
@@ -70,16 +70,17 @@ export default function ListUsers() {
                 </td>
                 <td className='align-middle'>
                   <Button
-                    variant='light'
-                    className='button-sm mx-2'
+                    size='sm'
+                    variant='primary'
+                    className='mx-2'
                     onClick={() => handleEdit(item.id)}
                   >
                     <i className='fas fa-edit'></i>
                   </Button>
 
                   <Button
+                    size='sm'
                     variant='danger'
-                    className='btn-sm'
                     onClick={() => handleDelete(item.id, item.name)}
                   >
                     <i className='fas fa-trash'></i>

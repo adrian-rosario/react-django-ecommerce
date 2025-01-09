@@ -120,7 +120,7 @@ function ProductDetail() {
                   <Rating
                     rating={the_product.rating}
                     reviews={the_product.numReviews}
-                    star_color={`rgb(253, 168, 0)`}
+                    // star_color={`rgb(253, 168, 0)`}
                   ></Rating>
                 </ListGroup.Item>
               </ListGroup>
@@ -176,14 +176,25 @@ function ProductDetail() {
                   )}
 
                   <ListGroup.Item>
-                    <button
-                      className='btn-block'
+                    {!userDetails && (
+                      <Button
+                        type='button'
+                        onClick={() => navigate("/login")}
+                        variant='info'
+                        className='mb-2'
+                      >
+                        Please Log in
+                      </Button>
+                    )}
+
+                    <Button
+                      variant='primary'
                       type='button'
-                      disabled={the_product.countInStock === 0}
+                      disabled={!userDetails || the_product.countInStock === 0}
                       onClick={handleAddToCart}
                     >
                       Add to Cart
-                    </button>
+                    </Button>
                   </ListGroup.Item>
                 </ListGroup>
               </Card>
@@ -191,7 +202,7 @@ function ProductDetail() {
           </Row>
 
           <Row>
-            <Col md={6}>
+            <Col md={6} className='mt-3'>
               <h3>Product Reviews</h3>
 
               {productItem.product.reviews &&
@@ -228,7 +239,7 @@ function ProductDetail() {
                     <Rating
                       rating={item.rating}
                       reviews={the_product.numReviews}
-                      star_color={`rgb(253, 168, 0)`}
+                      // star_color={`rgb(253, 168, 0)`}
                     ></Rating>
                   </ListGroup.Item>
                 ))}
