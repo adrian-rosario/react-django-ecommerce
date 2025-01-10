@@ -4,11 +4,11 @@
 
 Building along with Udemy [Django with React | An Ecommerce Website](https://www.udemy.com/course/django-with-react-an-ecommerce-website) by Dennis Ivy, Brad Traversy
 
-- **Backend**: Django Rest Framework, Simple JWT, Pillow. [Source code](https://github.com/adrian-rosario/react-django/tree/main/ecommerce/backend/sales_platform)
+- **Backend**: [Django](#django) Rest Framework, Simple JWT, Pillow. [Source code](https://github.com/adrian-rosario/react-django/tree/main/ecommerce/backend/sales_platform)
 
   - API Documentation: [Order API](#api-order), [Product API](#api-products), [User API](#api-user)
 
-- **Frontend**: React, React Router, React Bootstrap, Font Awesome, React-Paypal, Axios, Redux. [Source code](https://github.com/adrian-rosario/react-django/tree/main/ecommerce/frontend/ecomm-frontend-app)
+- **Frontend**: [React](#react), React Router, React Bootstrap, Font Awesome, React-Paypal, Axios, Redux. [Source code](https://github.com/adrian-rosario/react-django/tree/main/ecommerce/frontend/ecomm-frontend-app)
 - **Database**: SQLite
 
 ## Usage
@@ -39,6 +39,10 @@ Users can browse the inventory and Search for items. Logged in users can add to 
 <img src="/screenshots/19-edit-product-admin.png" style="width:200px;" />
 </div>
 </div>
+
+<a id="django"></a>
+
+[Top](#top)
 
 ### **Backend, Django**
 
@@ -118,6 +122,10 @@ backend/
 10. **API Documentation**: [Order API](#api-order), [Product API](#api-products), [User API](#api-user)
 
 ---
+
+<a id="react"></a>
+
+[Top](#top)
 
 ### **Frontend, React**
 
