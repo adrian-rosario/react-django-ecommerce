@@ -8,9 +8,6 @@ import { useNavigate } from "react-router-dom";
 import { user_constants } from "../../utl/constants_user";
 import { getOrderHistory } from "../../state/actions/order";
 
-// import FormLoginRegister from "./FormLoginRegister";
-// import { Link } from "react-router-dom";
-
 export default function Profile() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -19,11 +16,6 @@ export default function Profile() {
   const [message, setMessage] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  // const query = window.location.search;
-  // const param = new URLSearchParams(query);
-  // const redirect = param.get("redirect");
-
   const userDetailsRoot = useSelector((state) => state.userDetails);
   const {
     error: errorUserDetails,
@@ -33,8 +25,6 @@ export default function Profile() {
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userDetails } = userLogin;
-
-  // console.log("??", JSON.stringify(userLogin));
 
   const userUpdatedLogin = useSelector((state) => state.userUpdateProfile);
   const { success } = userUpdatedLogin;
@@ -46,22 +36,17 @@ export default function Profile() {
     purchases,
   } = orderHistory;
 
-  // console.log("purchases:\n", JSON.stringify(purchases));
-
   //  clear any messages, giving user a chance to correct error
   const handlePasswordFocus = (e) => {
-    // console.log("focus!");
     setMessage("");
   };
 
   useEffect(() => {
     if (!userDetails || errorUserDetails) {
-      // console.log("no user details");
       navigate("/login");
     } else {
       if (!user || !user.name || success) {
         dispatch({ type: user_constants.USER_PROFILE_RESET });
-        // console.log("no user or name");
         dispatch(update_get("profile"));
         dispatch(getOrderHistory());
         setMessage("Profile Updated.");
@@ -98,7 +83,7 @@ export default function Profile() {
   };
 
   return (
-    <Row>
+    <Row className='mt-4'>
       <Col md={3}>
         <h3>Profile</h3>
 
@@ -161,7 +146,7 @@ export default function Profile() {
         ) : errorLoadingHistory ? (
           <AlertMessage variant='danger'>{errorLoadingHistory}</AlertMessage>
         ) : (
-          <Table striped responsive className='table-sm'>
+          <Table striped responsive className='table-sm mt-2'>
             <thead>
               <tr>
                 <th>ID</th>

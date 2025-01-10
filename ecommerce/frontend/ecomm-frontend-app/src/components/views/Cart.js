@@ -23,8 +23,8 @@ function Cart(/*{ match, location, history }*/) {
   const theQuantity = param.get("quantity");
   const navigate = useNavigate();
 
-  // console.log("id: " + id);
-  // console.log("the quantity: ", theQuantity);
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userDetails } = userLogin;
 
   const cartState = useSelector((state) => state.cart);
   const { cart } = cartState;
@@ -41,10 +41,13 @@ function Cart(/*{ match, location, history }*/) {
   };
 
   useEffect(() => {
+    if (!userDetails) {
+      navigate("/login");
+    }
     if (id && theQuantity) {
       dispatch(addToCart(id, theQuantity));
     }
-  }, [dispatch, id, theQuantity]);
+  }, [dispatch, id, theQuantity, userDetails, navigate]);
 
   return (
     <div className='cart_page'>

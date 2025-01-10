@@ -50,7 +50,7 @@ export default function AdminOrders() {
   };
 
   return (
-    <div>
+    <div className='mt-4'>
       <h3>Admin, All Orders</h3>
 
       {loadingDelete && <Loading />}
@@ -61,17 +61,17 @@ export default function AdminOrders() {
       {loading && <Loading />}
       {error && <AlertMessage variant='danger'>{error}</AlertMessage>}
       {orders && (
-        <Table striped bordered hover responsive className='table-sm'>
+        <Table striped bordered hover responsive className='table-sm mt-4'>
           <thead>
             <tr>
               <th>User</th>
-              <th className='text-center'>Payment Method</th>
+              <th className='text-center'>Method</th>
               <th className='text-center'>Tax</th>
               <th className='text-center'>Shipping</th>
-              <th className='text-center'>Total Price</th>
-              <th className='text-center'>Is Paid</th>
+              <th className='text-center'>Total</th>
+              <th className='text-center'>Paid</th>
               <th className='text-center'>Paid Date</th>
-              <th className='text-center'>Is Delivered</th>
+              <th className='text-center'>Delivered</th>
               <th>Delivered At</th>
               <th>&nbsp;</th>
             </tr>
@@ -83,11 +83,11 @@ export default function AdminOrders() {
                 <td className='text-center align-middle'>
                   {item.paymentMethod}
                 </td>
-                <td className='align-middle'>${item.taxPrice}</td>
+                <td className='text-center align-middle'>${item.taxPrice}</td>
                 <td className='text-center align-middle'>
                   ${item.shippingPrice}
                 </td>
-                <td className='align-middle'>${item.totalPrice}</td>
+                <td className='text-center align-middle'>${item.totalPrice}</td>
                 <td className='text-center align-middle'>
                   {item.isPaid ? (
                     <i className='fas fa-check' style={{ color: "green" }}></i>
@@ -133,7 +133,7 @@ export default function AdminOrders() {
                     <Button
                       className='me-1'
                       size='sm'
-                      variant='light'
+                      variant='primary'
                       onClick={() => navigate(`/order/view/${item.id}`)}
                     >
                       Details
